@@ -2,10 +2,19 @@ import { ACTION } from '../constants';
 
 let lastid = 0;
 
+function getLastId() {
+  let id = localStorage.getItem('lastid');
+  if (!id) {
+    lastid = 0;
+  }
+
+  return ++lastid;
+}
+
 export function addTodo(text) {
   return {
     type: ACTION.ADD_TODO,
-    id: ++lastid,
+    id: getLastId(),
     text: text
   }
 }
