@@ -1,29 +1,7 @@
 import { ACTION } from '../constants';
+import { getTodos, saveLastId, saveTodo } from '../shared/storage';
 
-let initialState = [];
-
-function getInitialState() {
-  let lx = localStorage.getItem('todos');
-  if (!lx) {
-    initialState = [];
-  }
-
-  else {
-    initialState = JSON.parse(lx);
-  }
-
-  return initialState;
-}
-
-function saveTodo(list, id) {
-  if (id) {
-    localStorage.setItem('lastid', id.toString());
-  }
-
-  localStorage.setItem('todos', JSON.stringify(list));
-}
-
-function todos(state = getInitialState(), action) {
+function todos(state = getTodos(), action) {
   if (action.type === ACTION.ADD_TODO) {
     let list = [
       ...state,
@@ -35,7 +13,8 @@ function todos(state = getInitialState(), action) {
         editText: action.text
       }
     ];
-    saveTodo(list, action.id);
+    saveLastId(action.id);
+    saveTodo(list);
     return list;
   }
 

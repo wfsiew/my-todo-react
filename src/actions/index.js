@@ -1,15 +1,5 @@
 import { ACTION } from '../constants';
-
-let lastid = 0;
-
-function getLastId() {
-  let id = localStorage.getItem('lastid');
-  if (!id) {
-    lastid = 0;
-  }
-
-  return ++lastid;
-}
+import { getLastId } from '../shared/storage';
 
 export function addTodo(text) {
   return {

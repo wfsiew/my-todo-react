@@ -40,7 +40,7 @@ class Input extends Component {
                 name="todo"
                 value={this.state.todo}
                 onChange={this.handleChange}
-                placeholder="Type in a new todo..." 
+                placeholder="Type in a new todo" 
                 className="form-control"
               />
               <div className="input-group-append">
