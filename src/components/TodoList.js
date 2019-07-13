@@ -8,7 +8,7 @@ class TodoList extends Component {
     if (!todos.length) {
       return (
         <div className="alert alert-info">
-          <div className="text-center">Your TO-DO is Empty</div>
+          <div className="text-center">Your TO-DO is empty</div>
         </div>
       )
     }
