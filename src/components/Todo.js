@@ -63,7 +63,7 @@ class Todo extends Component {
                 value={this.state.text}
                 onChange={this.handleChange}
                 onKeyPress={this.handleKeyPress}
-                placeholder="title"
+                placeholder="todo"
                 className="form-control"
               />
             </div>
