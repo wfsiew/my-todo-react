@@ -2,16 +2,17 @@ let lastid = 0;
 let todos = [];
 
 export function getLastId() {
-  let id = localStorage.getItem('lastid');
+  let id = localStorage.getItem('react-lastid');
   if (!id) {
     lastid = 0;
   }
 
+  lastid = parseInt(id);
   return ++lastid;
 }
 
 export function getTodos() {
-  let lx = localStorage.getItem('todos');
+  let lx = localStorage.getItem('react-todos');
   if (!lx) {
     todos = [];
   }
@@ -24,9 +25,9 @@ export function getTodos() {
 }
 
 export function saveLastId(id) {
-  localStorage.setItem('lastid', id.toString());
+  localStorage.setItem('react-lastid', id.toString());
 }
 
 export function saveTodo(todos) {
-  localStorage.setItem('todos', JSON.stringify(todos));
+  localStorage.setItem('react-todos', JSON.stringify(todos));
 }
