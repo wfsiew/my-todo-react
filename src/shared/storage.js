@@ -7,7 +7,10 @@ export function getLastId() {
     lastid = 0;
   }
 
-  lastid = parseInt(id);
+  else {
+    lastid = parseInt(id);
+  }
+
   return ++lastid;
 }
 
