@@ -13,12 +13,16 @@ export function getLastId() {
 
 export function getTodos() {
   let lx = localStorage.getItem('react-todos');
-  if (!lx) {
+  let id = localStorage.getItem('react-lastid');
+
+  if (!id) {
     todos = [];
+    lastid = 0;
   }
 
   else {
     todos = JSON.parse(lx);
+    lastid = parseInt(id);
   }
 
   return todos;
