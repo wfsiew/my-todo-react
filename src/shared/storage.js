@@ -35,6 +35,15 @@ export function saveLastId(id) {
   localStorage.setItem('react-lastid', id.toString());
 }
 
-export function saveTodo(todos) {
-  localStorage.setItem('react-todos', JSON.stringify(todos));
+export function saveTodo(_todos) {
+  if (_todos && _todos.length) {
+    localStorage.setItem('react-todos', JSON.stringify(_todos));
+  }
+  
+  else {
+    lastid = 0;
+    todos = [];
+    saveLastId(0);
+    localStorage.setItem('react-todos', JSON.stringify(_todos));
+  }
 }
